@@ -1,0 +1,493 @@
+/* Global Styles */
+html,
+body {
+  background-color: #2d2d2d;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevents scrolling on the main page */
+  font-family: "Space Grotesk", sans-serif;
+  color: #ddd;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form Styles */
+form {
+  display: flex; /* Arrange items in a row */
+  align-items: center; /* Vertically align items */
+  gap: 10px; /* Add spacing between the text box and button */
+  flex-wrap: nowrap; /* Ensure items stay in the same row */
+  justify-content: center; /* Center align the form */
+}
+
+textarea {
+  resize: none; /* Disable resizing */
+  padding: 12px 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 18px;
+  width: 100%; /* Responsive width */
+  max-width: 500px; /* Set maximum width */
+  outline: none;
+  max-height: 200px; /* Limit the height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 60px;
+  font-family: "Space Grotesk", sans-serif;
+  background-color: #1d1d1d;
+  color: #bbb;
+}
+
+textarea:focus {
+  border-color: #ffd700;
+  box-shadow: 0 0 0 2px rgba(241, 226, 3, 0.25);
+}
+
+button {
+  align-self: center; /* Align the button vertically with the text box */
+  padding: 12px 24px;
+  background-color: #ffd700;
+  color: #2d2d2d;
+  border: none;
+  border-radius: 50%; /* Circular button */
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  background-color: #ffff00;
+}
+
+/* Header Styles */
+.header {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  display: flex;
+  gap: 0px;
+  color: #ddd;
+  font-weight: bold;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.header-black {
+  color: #ddd; /* EchoSearch text color */
+}
+
+.header-orange {
+  color: #ffd700; /* .ai text color */
+}
+
+/* Main Container */
+.container {
+  display: flex;
+  justify-content: center; /* Horizontally centers the content */
+  width: 100%; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  padding: 0 40px; /* Add horizontal padding for fine-tuning alignment */
+  box-sizing: border-box;
+  margin-top: 20px; /* Add a gap between the top of the page and the container */
+}
+
+.content {
+  display: flex;
+  justify-content: space-between; /* Space between sections */
+  gap: 20px; /* Space between videos and summary */
+  width: 100%; /* Use full width of the container */
+  max-width: 1000px; /* Increase max width for the layout */
+  margin-left: 50px; /* Slightly shift the content to the right */
+  box-sizing: border-box;
+}
+
+/* Videos Section */
+.videos-section,
+.summary-section {
+  flex: 1.2; /* Slightly increase the flex size for more width */
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh; /* Limit height of sections to fit the viewport */
+  overflow-y: auto; /* Enable scrolling */
+  border: 1px solid #444;
+  border-radius: 8px;
+  background-color: #2d2d2d;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.videos-section h2,
+.summary-section h2 {
+  position: sticky;
+  top: 0;
+  background-color: #2d2d2d;
+  z-index: 10;
+  padding: 10px;
+  margin: 0;
+  border-bottom: 1px solid #444;
+}
+
+.videos-content,
+.summary-content {
+  flex: 1;
+  overflow-y: auto; /* Enable vertical scrolling within sections */
+  padding: 10px;
+}
+
+.video-container {
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  background-color: #1f1f1f; /* Slightly darker background for summaries */
+  border-radius: 8px;
+}
+
+.video-container .additional-start-times {
+  font-size: 13px;
+  margin-top: -10px;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+  margin: 0px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #000;
+}
+
+.video-container .video-name {
+  font-size: 14px;
+  font-weight: normal;
+  color: #ffd700; /* Highlight the video name in gold */
+  margin-top: 5px;
+}
+
+/* Summary Section */
+.summary-container {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #1f1f1f; /* Slightly darker background for summaries */
+  border-radius: 8px;
+}
+
+.summary-container p {
+  margin: 0;
+  color: #ddd; /* Text color */
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.summary-content .video-name {
+  font-size: 14px;
+  font-weight: normal;
+  color: #ffd700;
+}
+
+/* Search Container */
+.search-container {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  background-color: #000;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px #2d2d2d;
+  z-index: 1000;
+  max-width: 95%; /* Responsive maximum width */
+  width: calc(
+    100% - 40px
+  ); /* Dynamic width, always leaving some padding on the sides */
+  max-width: 600px; /* Ensure it doesn’t exceed a certain size */
+}
+
+/* Centered Input */
+.centered-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 500px;
+  background-color: #2d2d2d;
+}
+
+.centered-input form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Scrollbar Styling */
+textarea::-webkit-scrollbar,
+.videos-content::-webkit-scrollbar,
+.summary-content::-webkit-scrollbar {
+  width: 8px; /* Slimmer scrollbar width */
+  height: 8px; /* Slimmer height for horizontal scrollbars */
+}
+
+textarea::-webkit-scrollbar-track,
+.videos-content::-webkit-scrollbar-track,
+.summary-content::-webkit-scrollbar-track {
+  background: #2d2d2d; /* Dark background for the track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+textarea::-webkit-scrollbar-thumb,
+.videos-content::-webkit-scrollbar-thumb,
+.summary-content::-webkit-scrollbar-thumb {
+  background: #555; /* Slightly lighter color for the thumb */
+  border-radius: 10px; /* Rounded scrollbar thumb */
+}
+
+textarea::-webkit-scrollbar-thumb:hover,
+.videos-content::-webkit-scrollbar-thumb:hover,
+.summary-content::-webkit-scrollbar-thumb:hover {
+  background: #444; /* Darker thumb color on hover */
+}
+
+/* Query Log */
+.query-log {
+  position: fixed;
+  top: 25px;
+  right: 20px;
+  width: 300px; /* Fixed width for the query log */
+  max-height: 90vh; /* Prevent it from exceeding the viewport */
+  background-color: #2d2d2d;
+  border: 1px solid #444;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  transition: max-height 0.3s ease; /* Smooth transition for minimize */
+}
+
+.query-log.minimized {
+  max-height: 80px; /* Minimized height */
+  overflow: hidden; /* Hide content */
+}
+
+.query-log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #2d2d2d; /* Same background as header */
+  border-bottom: 1px solid #444;
+}
+
+.query-log-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #ffd700; /* Highlighted title color */
+}
+
+.query-log-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.query-log-controls button {
+  background: none; /* Remove background */
+  color: #ddd; /* Keep text color */
+  border: none; /* Remove border */
+  cursor: pointer;
+  font-size: 12px; /* Smaller text */
+  padding: 0;
+  outline: none; /* Remove focus ring */
+}
+
+.query-log-controls button:hover {
+  text-decoration: None; /* Underline on hover */
+  color: #ffd700;
+}
+
+.query-log .query-content {
+  flex: 1; /* Allow content to take remaining space */
+  overflow-y: auto; /* Enable scrolling for the query content */
+  padding: 10px; /* Add some padding around the content */
+}
+
+.date-group {
+  margin-bottom: 20px;
+}
+
+.query-date {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ddd;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+}
+
+.query-log ul {
+  list-style: none; /* Removes bullet points */
+  margin: 0;
+  padding: 0;
+}
+
+.query-item {
+  position: relative;
+  margin-bottom: 15px;
+  font-size: 14px;
+  padding-bottom: 20px; /* Add space for the timestamp */
+  border-bottom: 1px solid #444;
+}
+
+.query-text {
+  display: block;
+  word-wrap: break-word;
+}
+
+.query-time {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 12px; /* Smaller font for the timestamp */
+  color: #bbb; /* Lighter color for the timestamp */
+}
+
+/* Scrollbar styling for the query log */
+.query-content::-webkit-scrollbar {
+  width: 8px; /* Slimmer scrollbar width */
+  height: 8px; /* Slimmer height for horizontal scrollbars */
+}
+
+.query-content::-webkit-scrollbar-track {
+  background: #2d2d2d; /* Dark background for the track */
+  border-radius: 10px; /* Rounded corners for the track */
+}
+
+.query-content::-webkit-scrollbar-thumb {
+  background: #555; /* Slightly lighter thumb color */
+  border-radius: 10px; /* Rounded scrollbar thumb */
+}
+
+.query-content::-webkit-scrollbar-thumb:hover {
+  background: #444; /* Darker thumb color on hover */
+}
+
+.loading-animation {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: #ffd700;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  animation: fade-in 1s ease-in-out infinite;
+}
+
+.footer {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  color: #ffd700; /* Gold text color */
+  font-size: 12px;
+  text-align: right;
+  background-color: #2d2d2d; /* Match background */
+  padding: 5px;
+}
+
+@keyframes fade-in {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .videos-section,
+  .summary-section {
+    max-height: none;
+    height: auto;
+    margin-bottom: 20px;
+  }
+
+  .search-container {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .centered-input {
+    padding: 0 5px;
+  }
+
+  .query-log {
+    display: none;
+  }
+
+  html,
+  body {
+    overflow: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 18px;
+  }
+
+  button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  textarea {
+    font-size: 14px;
+  }
+
+  .search-container {
+    padding: 10px;
+  }
+}
+
+@media (min-width: 1366px) and (max-width: 1440px) {
+  .content {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .videos-section,
+  .summary-section {
+    max-height: 75vh;
+  }
+
+  textarea {
+    font-size: 18px;
+  }
+
+  .search-container {
+    max-width: 80%;
+    padding: 15px;
+  }
+
+  .centered-input {
+    padding: 0 10px;
+  }
+
+  .query-log {
+    display: block;
+    max-height: 20vh;
+  }
+}

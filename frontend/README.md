@@ -1,0 +1,1 @@
+**To Start the application run `npm run dev`**
