@@ -25,7 +25,3 @@ Traditional video-based learning is inefficient for finding specific information
 - Abhishek Shastry
 - Veetrag Nahar
 - Yash Vora
-
----
-
-Feel free to adjust the sections or add more as needed!
